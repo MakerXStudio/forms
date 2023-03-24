@@ -1,4 +1,4 @@
-export class FormFieldHelper<TSchema extends Record<string, any>> {
+export class FormFieldHelperBase<TSchema extends Record<string, any>> {
   private readonly fieldPrefix: string;
   constructor({ fieldPrefix }: { fieldPrefix?: string } = {}) {
     this.fieldPrefix = fieldPrefix ? `${fieldPrefix}.` : '';
