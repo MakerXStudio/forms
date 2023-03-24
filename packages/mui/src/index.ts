@@ -1,3 +1,6 @@
-const log = () => console.log('for testing')
+import { ValidatedFormFactory } from '@makerx/forms-core';
+import { FormFieldHelper } from './util/FormFieldHelper';
 
-export { log }
+const ValidatedForm = ValidatedFormFactory(FormFieldHelper);
+
+export { ValidatedForm, FormFieldHelper };
