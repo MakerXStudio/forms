@@ -59,7 +59,7 @@ export function TextArrayFormItem<
 
               return (
                 <div>
-                  <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                     <TextField
                       fullWidth
                       error={!!errorMessage}
