@@ -1,9 +1,14 @@
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { enAU } from 'date-fns/locale';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <App />
+    <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={enAU}>
+      <App />
+    </LocalizationProvider>
   </React.StrictMode>
 );

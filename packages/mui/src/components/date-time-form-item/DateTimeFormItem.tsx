@@ -1,4 +1,4 @@
-import { DateTimePicker } from '@mui/x-date-pickers';
+import { DateTimePicker, DateTimePickerProps } from '@mui/x-date-pickers';
 import { Controller, useFormContext } from 'react-hook-form';
 import type { FormItemProps } from '../form-item/FormItem';
 import { FormItem } from '../form-item/FormItem';
@@ -10,7 +10,9 @@ export type DateTimeConverters = {
 
 export type DateTimeFormItemProps<
   TSchema extends Record<string, any> = Record<string, any>
-> = Omit<FormItemProps<TSchema>, 'children'> & DateTimeConverters;
+> = Omit<FormItemProps<TSchema>, 'children'> &
+  DateTimePickerProps<Date> &
+  DateTimeConverters;
 
 export function DateTimeFormItem<
   TSchema extends Record<string, any> = Record<string, any>
@@ -22,6 +24,7 @@ export function DateTimeFormItem<
   hint,
   fromISO,
   toISO,
+  ...dateTimePickerProps
 }: DateTimeFormItemProps<TSchema>) {
   const { control } = useFormContext();
 
@@ -38,15 +41,17 @@ export function DateTimeFormItem<
         control={control}
         render={({ field: { onChange, value } }) => {
           return (
-            <div className="flex gap-4">
-              <DateTimePicker
-                onChange={(v) => v && onChange(toISO(v))}
-                value={fromISO(value)}
-                slotProps={{
-                  textField: { inputProps: { 'aria-label': label } },
-                }}
-              />
-            </div>
+            <DateTimePicker
+              {...dateTimePickerProps}
+              onChange={onChange}
+              value={value}
+              slotProps={{
+                textField: {
+                  inputProps: { 'aria-label': label },
+                  fullWidth: true,
+                },
+              }}
+            />
           );
         }}
       />
