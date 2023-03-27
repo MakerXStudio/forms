@@ -1,12 +1,15 @@
-import { TextField, TextFieldProps } from "@mui/material";
-import { Controller, useFormContext } from "react-hook-form";
-import type { FormItemProps } from "../form-item/FormItem";
-import { FormItem } from "../form-item/FormItem";
+import { TextField, TextFieldProps } from '@mui/material';
+import { Controller, useFormContext } from 'react-hook-form';
+import type { FormItemProps } from '../form-item/FormItem';
+import { FormItem } from '../form-item/FormItem';
 
-export type TextFormItemProps<TSchema extends Record<string, any> = Record<string, any>> = Omit<FormItemProps<TSchema>, "children"> &
-  Partial<TextFieldProps>;
+export type TextFormItemProps<
+  TSchema extends Record<string, any> = Record<string, any>
+> = Omit<FormItemProps<TSchema>, 'children'> & Partial<TextFieldProps>;
 
-export function TextFormItem<TSchema extends Record<string, any> = Record<string, any>>({
+export function TextFormItem<
+  TSchema extends Record<string, any> = Record<string, any>
+>({
   field,
   disabled,
   label,
@@ -20,7 +23,13 @@ export function TextFormItem<TSchema extends Record<string, any> = Record<string
   } = useFormContext();
   const error = errors[field];
   return (
-    <FormItem field={field} label={label} hint={hint} disabled={disabled} className={className}>
+    <FormItem
+      field={field}
+      label={label}
+      hint={hint}
+      disabled={disabled}
+      className={className}
+    >
       <Controller
         name={field}
         control={control}
@@ -34,7 +43,7 @@ export function TextFormItem<TSchema extends Record<string, any> = Record<string
             value={value}
             name={name}
             ref={ref}
-            inputProps={{ "aria-label": label }}
+            inputProps={{ 'aria-label': label }}
           />
         )}
       />
