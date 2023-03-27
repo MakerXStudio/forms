@@ -9,8 +9,8 @@ permissions:
   packages: read
 
 jobs:
-  deploy-docs:
-    name: Build & Deploy Docs
+  build:
+    name: Build example-mui
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
@@ -22,4 +22,31 @@ jobs:
           node-version: 18.x
 
       - run: npm ci
+
       - run: npm run build
+
+      - name: Archive
+        run: tar --dereference --hard-dereference --directory packages/mui-example/dist/ -cvf artifact.tar .
+
+      - name: Upload
+        uses: actions/upload-artifact@main
+        with:
+          name: github-pages
+          path: ./artifact.tar
+          if-no-files-found: warn
+
+  deploy:
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
