@@ -1,6 +1,5 @@
 import { ValidatedForm } from '@makerx/forms-mui';
 import { Container, Grid } from '@mui/material';
-import { formatISO, parseISO } from 'date-fns';
 import { z } from 'zod';
 import { zfd } from 'zod-form-data';
 
@@ -52,8 +51,6 @@ function App() {
               {helper.dateTimeField({
                 label: 'Date',
                 field: 'myDateTime',
-                fromISO: parseISO,
-                toISO: formatISO,
               })}
             </Grid>
             <Grid item xs={12}>

@@ -3,16 +3,9 @@ import { Controller, useFormContext } from 'react-hook-form';
 import type { FormItemProps } from '../form-item/FormItem';
 import { FormItem } from '../form-item/FormItem';
 
-export type DateTimeConverters = {
-  toISO: (v: Date) => string;
-  fromISO: (v: string) => Date;
-};
-
 export type DateTimeFormItemProps<
   TSchema extends Record<string, any> = Record<string, any>
-> = Omit<FormItemProps<TSchema>, 'children'> &
-  DateTimePickerProps<Date> &
-  DateTimeConverters;
+> = Omit<FormItemProps<TSchema>, 'children'> & DateTimePickerProps<Date>;
 
 export function DateTimeFormItem<
   TSchema extends Record<string, any> = Record<string, any>
@@ -22,8 +15,6 @@ export function DateTimeFormItem<
   label,
   className,
   hint,
-  fromISO,
-  toISO,
   ...dateTimePickerProps
 }: DateTimeFormItemProps<TSchema>) {
   const { control } = useFormContext();
