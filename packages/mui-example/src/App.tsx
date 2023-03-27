@@ -2,6 +2,9 @@ import { ValidatedForm, z, zfd } from '@makerx/forms-mui';
 import { Container, Grid, Typography } from '@mui/material';
 import { formatISO, parseISO } from 'date-fns';
 
+/**
+ * Define schema
+ */
 export const formSchema = zfd.formData({
   myString: zfd.text(z.string().trim().min(1, 'Required')),
   myArray: zfd.repeatable(
@@ -12,16 +15,21 @@ export const formSchema = zfd.formData({
   myDateTime: zfd.text(),
 });
 
-type FormType = z.infer<typeof formSchema>;
-
-const defaultValues: FormType = {
+/**
+ * Initialise with defaults
+ */
+const defaultValues: z.infer<typeof formSchema> = {
   myString: '',
   myArray: ['one value'],
   myDateTime: '',
 };
 
+/**
+ * Render form
+ */
 function App() {
-  const onSubmit = (data: FormType) => console.log('Received data:', data);
+  const onSubmit = (data: z.infer<typeof formSchema>) =>
+    console.log('Received data:', data);
 
   return (
     <ValidatedForm
