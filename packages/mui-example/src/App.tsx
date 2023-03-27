@@ -1,5 +1,5 @@
 import { ValidatedForm } from '@makerx/forms-mui';
-import { Container, Grid } from '@mui/material';
+import { Container, Grid, Typography } from '@mui/material';
 import { formatISO, parseISO } from 'date-fns';
 import { z } from 'zod';
 import { zfd } from 'zod-form-data';
@@ -33,6 +33,7 @@ function App() {
     >
       {(helper) => (
         <Container maxWidth="xs">
+          <Typography variant="h3">mui-example</Typography>
           <Grid sx={{ padding: 2 }} container spacing={2}>
             <Grid item xs={12}>
               {helper.textField({

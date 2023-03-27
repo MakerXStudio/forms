@@ -26,8 +26,11 @@ export function DateTimeFormItem<
   toISO,
   ...dateTimePickerProps
 }: DateTimeFormItemProps<TSchema>) {
-  const { control } = useFormContext();
-
+  const {
+    control,
+    formState: { errors },
+  } = useFormContext();
+  const error = Boolean(errors[field]);
   return (
     <FormItem
       field={field}
@@ -49,6 +52,7 @@ export function DateTimeFormItem<
                 textField: {
                   inputProps: { 'aria-label': label },
                   fullWidth: true,
+                  error,
                 },
               }}
             />
