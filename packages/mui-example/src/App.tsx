@@ -1,8 +1,6 @@
-import { ValidatedForm } from '@makerx/forms-mui';
+import { ValidatedForm, z, zfd } from '@makerx/forms-mui';
 import { Container, Grid, Typography } from '@mui/material';
 import { formatISO, parseISO } from 'date-fns';
-import { z } from 'zod';
-import { zfd } from 'zod-form-data';
 
 export const formSchema = zfd.formData({
   myString: zfd.text(z.string().trim().min(1, 'Required')),
