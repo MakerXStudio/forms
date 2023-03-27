@@ -1,5 +1,6 @@
 import { ValidatedForm } from '@makerx/forms-mui';
 import { Container, Grid } from '@mui/material';
+import { formatISO, parseISO } from 'date-fns';
 import { z } from 'zod';
 import { zfd } from 'zod-form-data';
 
@@ -10,7 +11,7 @@ export const formSchema = zfd.formData({
       .array(zfd.text(z.string().trim().min(1, 'Required')))
       .min(2, 'Must have at least 2 values')
   ),
-  myDateTime: z.date({ invalid_type_error: 'Required' }),
+  myDateTime: zfd.text(),
 });
 
 type FormType = z.infer<typeof formSchema>;
@@ -18,8 +19,7 @@ type FormType = z.infer<typeof formSchema>;
 const defaultValues: FormType = {
   myString: '',
   myArray: ['one value'],
-  // TODO: fix this type error
-  myDateTime: null as unknown as Date,
+  myDateTime: '',
 };
 
 function App() {
@@ -51,6 +51,8 @@ function App() {
               {helper.dateTimeField({
                 label: 'Date',
                 field: 'myDateTime',
+                fromISO: parseISO,
+                toISO: formatISO,
               })}
             </Grid>
             <Grid item xs={12}>
