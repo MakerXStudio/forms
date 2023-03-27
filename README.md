@@ -79,4 +79,4 @@ function App() {
 }
 ```
 
-[Styled example](https://github.com/MakerXStudio/forms/tree/main/packages/mui-example) | [Live demo](https://makerxstudio.github.io/forms/)
+[Styled example](https://github.com/MakerXStudio/forms/blob/main/packages/mui-example/src/App.tsx) | [Live demo](https://makerxstudio.github.io/forms/)
