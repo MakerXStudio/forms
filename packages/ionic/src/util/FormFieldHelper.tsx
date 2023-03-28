@@ -1,4 +1,8 @@
 import { FormFieldHelperBase } from '@makerx/forms-core';
+import {
+  SubmitButton,
+  SubmitButtonProps,
+} from '../components/submit-button/SubmitButton';
 import type { TextFormItemProps } from '../components/text-form-item/TextFormItem';
 import { TextFormItem } from '../components/text-form-item/TextFormItem';
 import type { TextareaFormItemProps } from '../components/textarea-form-item/TextareaFormItem';
@@ -13,5 +17,9 @@ export class FormFieldHelper<
 
   textareaField(props: TextareaFormItemProps<TSchema>) {
     return <TextareaFormItem {...this.prefixFieldProp(props)} />;
+  }
+
+  submitButton(props: SubmitButtonProps) {
+    return <SubmitButton {...props} />;
   }
 }
