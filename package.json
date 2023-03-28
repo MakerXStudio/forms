@@ -5,9 +5,11 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "lerna run build"
+    "build": "lerna run build",
+    "publish": "npm run build && npx changeset publish"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.26.1",
     "lerna": "^6.6.0"
   }
 }
