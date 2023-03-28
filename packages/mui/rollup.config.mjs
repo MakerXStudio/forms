@@ -35,7 +35,10 @@ export default [
   {
     input: './dist/esm/dts/index.d.ts',
     output: [{ file: 'dist/index.d.ts', format: 'es' }],
-    plugins: [dts(), del({ targets: './dist/dts', hook: 'buildEnd' })],
+    plugins: [
+      dts(),
+      del({ targets: ['./dist/esm/dts', './dist/cjs/dts'], hook: 'buildEnd' }),
+    ],
     external,
   },
 ];
