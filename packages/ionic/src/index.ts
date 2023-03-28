@@ -1,6 +1,6 @@
 import { ValidatedFormFactory, z, zfd } from '@makerx/forms-core';
-import { FormFieldHelper } from './util/FormFieldHelper';
+import { FormFieldHelper as FormFieldHelperBase } from './util/FormFieldHelper';
 
-const ValidatedForm = ValidatedFormFactory(FormFieldHelper);
+const ValidatedForm = ValidatedFormFactory(FormFieldHelperBase);
 
-export { ValidatedForm, FormFieldHelper, zfd, z };
+export { ValidatedForm, FormFieldHelperBase, zfd, z, ValidatedFormFactory };
