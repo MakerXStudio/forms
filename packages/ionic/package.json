@@ -2,6 +2,11 @@
   "name": "@makerx/forms-ionic",
   "private": false,
   "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MakerXStudio/forms.git",
+    "directory": "packages/forms-ionic"
+  },
   "type": "module",
   "scripts": {
     "build": "rollup -c"
