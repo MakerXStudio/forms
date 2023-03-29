@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   build:
-    name: Build example-mui
+    name: Build examples
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
@@ -37,8 +37,8 @@ jobs:
           path: ./artifact.tar
           if-no-files-found: warn
 
-  deploy-docs:
-    name: Deploy docs
+  deploy-examples:
+    name: Deploy examples
     needs: build
     permissions:
       pages: write
@@ -55,6 +55,7 @@ jobs:
         uses: actions/deploy-pages@v1
 
   release:
+    name: Release packages
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
