@@ -1,5 +1,14 @@
 # @makerx/forms-ionic
 
+## 1.0.4
+
+### Patch Changes
+
+- 294b061: Fix publish script
+- Updated dependencies [294b061]
+- Updated dependencies [a092335]
+  - @makerx/forms-core@1.0.2
+
 ## 1.0.3
 
 ### Patch Changes
