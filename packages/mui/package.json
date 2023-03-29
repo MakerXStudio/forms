@@ -1,16 +1,7 @@
 {
   "name": "@makerx/forms-mui",
   "private": false,
-<<<<<<< Updated upstream
   "version": "1.0.0",
-=======
-  "version": "0.0.0",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/MakerXStudio/forms.git",
-    "directory": "packages/mui"
-  },
->>>>>>> Stashed changes
   "type": "module",
   "scripts": {
     "build": "rollup -c"
