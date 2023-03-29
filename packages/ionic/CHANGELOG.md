@@ -1,5 +1,11 @@
 # @makerx/forms-ionic
 
+## 1.0.1
+
+### Patch Changes
+
+- fce7281: Add repository reference
+
 ## 1.0.0
 
 ### Major Changes
