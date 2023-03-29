@@ -6,10 +6,15 @@
   ],
   "scripts": {
     "build": "lerna run build",
-    "publish": "npm run build && npx changeset publish"
+    "publish": "run-s publish:*",
+    "publish:0-build": "npm run build",
+    "publish:1-ionic-readme": "cat README.md packages/ionic/README.md > packages/ionic/dist/README.md",
+    "publish:2-mui-readme": "cat README.md packages/mui/README.md > packages/mui/dist/README.md",
+    "publish:1-publish": "npx changeset publish"
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.1",
-    "lerna": "^6.6.0"
+    "lerna": "^6.6.0",
+    "npm-run-all": "^4.1.5"
   }
 }
