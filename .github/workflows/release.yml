@@ -25,8 +25,10 @@ jobs:
 
       - run: npm run build
 
+      - run: mkdir out && cp -R packages/mui-example/dist/ out/mui-example && cp -R packages/ionic-example/dist/ out/ionic-example
+
       - name: Archive
-        run: tar --dereference --hard-dereference --directory packages/mui-example/dist/ -cvf artifact.tar .
+        run: tar --dereference --hard-dereference --directory out -cvf artifact.tar .
 
       - name: Upload
         uses: actions/upload-artifact@main
