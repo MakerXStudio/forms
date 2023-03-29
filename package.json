@@ -11,7 +11,7 @@
     "publish:1-ionic-readme": "cat README.md packages/ionic/README.md > packages/ionic/dist/README.md",
     "publish:2-mui-readme": "cat README.md packages/mui/README.md > packages/mui/dist/README.md",
     "publish:3-core-readme": "cp README.md packages/core/dist/README.md",
-    "publish:1-publish": "npx changeset publish"
+    "publish:4-publish": "npx changeset publish"
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.1",
