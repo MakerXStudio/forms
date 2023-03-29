@@ -1,5 +1,13 @@
 # @makerx/forms-ionic
 
+## 1.0.5
+
+### Patch Changes
+
+- 7597f0d: Fix repository directory
+- Updated dependencies [7597f0d]
+  - @makerx/forms-core@1.0.3
+
 ## 1.0.4
 
 ### Patch Changes

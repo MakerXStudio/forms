@@ -1,5 +1,11 @@
 # @makerx/forms-core
 
+## 1.0.3
+
+### Patch Changes
+
+- 7597f0d: Fix repository directory
+
 ## 1.0.2
 
 ### Patch Changes
