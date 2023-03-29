@@ -1,5 +1,12 @@
 # @makerx/forms-core
 
+## 1.0.2
+
+### Patch Changes
+
+- 294b061: Fix publish script
+- a092335: Repository reference
+
 ## 1.0.1
 
 ### Patch Changes
