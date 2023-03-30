@@ -15,6 +15,7 @@ export const formSchema = zfd.formData({
       .min(2, 'Must have at least 2 values')
   ),
   myDateTime: zfd.text(),
+  myTextFile: zfd.text(z.string().optional()),
 });
 
 /**
@@ -78,6 +79,13 @@ function App() {
                 field: 'myDateTime',
                 fromISO: parseISO,
                 toISO: formatISO,
+              })}
+            </Grid>
+            <Grid item xs={12}>
+              {helper.textFileFormField({
+                label: 'Text file',
+                field: 'myTextFile',
+                hint: 'Upload a textfile here',
               })}
             </Grid>
             <Grid item xs={12}>
