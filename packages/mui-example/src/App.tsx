@@ -1,5 +1,7 @@
 import { ValidatedForm, z, zfd } from '@makerx/forms-mui';
-import { Container, Grid, Typography } from '@mui/material';
+import FailIcon from '@mui/icons-material/Cancel';
+import SuccessIcon from '@mui/icons-material/CheckCircle';
+import { Container, Grid, Stack, Typography } from '@mui/material';
 import { formatISO, parseISO } from 'date-fns';
 
 /**
@@ -63,7 +65,15 @@ function App() {
               })}
             </Grid>
             <Grid item xs={12}>
-              {helper.submitButton({ label: 'Submit' })}
+              <Stack direction="row" spacing={1} alignItems="center">
+                {helper.submitButton({ label: 'Submit' })}
+                {helper.formContext.formState.isSubmitted &&
+                  (helper.formContext.formState.isSubmitSuccessful ? (
+                    <SuccessIcon color="success" />
+                  ) : (
+                    <FailIcon color="error" />
+                  ))}
+              </Stack>
             </Grid>
           </Grid>
         </Container>

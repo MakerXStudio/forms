@@ -39,7 +39,7 @@ export const ValidatedFormFactory =
     TSchema extends Record<string, unknown>,
     K extends FormFieldHelperBase<TSchema>
   >(
-    formFieldHelperFactory: new () => K
+    formFieldHelperFactory: new (formContext: UseFormReturn<TSchema>) => K
   ) =>
   ({
     className,
@@ -65,7 +65,7 @@ export const ValidatedFormFactory =
             onSubmit={onSubmit && formContext.handleSubmit(onSubmit)}
           >
             {typeof children === 'function'
-              ? children(new formFieldHelperFactory())
+              ? children(new formFieldHelperFactory(formContext))
               : children}
           </form>
         </FormProvider>
