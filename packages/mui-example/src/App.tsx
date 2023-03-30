@@ -15,6 +15,8 @@ export const formSchema = zfd.formData({
       .min(2, 'Must have at least 2 values')
   ),
   myDateTime: zfd.text(),
+  myTextFile: zfd.text(z.string().optional()),
+  myParagraph: zfd.text(),
 });
 
 /**
@@ -24,6 +26,8 @@ const defaultValues: z.infer<typeof formSchema> = {
   myString: '',
   myArray: ['one value'],
   myDateTime: '',
+  myTextFile: '',
+  myParagraph: '',
 };
 
 /**
@@ -78,6 +82,19 @@ function App() {
                 field: 'myDateTime',
                 fromISO: parseISO,
                 toISO: formatISO,
+              })}
+            </Grid>
+            <Grid item xs={12}>
+              {helper.textFileFormField({
+                label: 'Text file',
+                field: 'myTextFile',
+                hint: 'Upload a textfile here',
+              })}
+            </Grid>
+            <Grid item xs={12}>
+              {helper.textareaField({
+                label: 'A paragraph of text',
+                field: 'myParagraph',
               })}
             </Grid>
             <Grid item xs={12}>

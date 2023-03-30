@@ -1,6 +1,7 @@
 import DeleteIcon from '@mui/icons-material/Delete';
-import { Button, IconButton, Typography } from '@mui/material';
+import { Box, Button, IconButton, Typography } from '@mui/material';
 import { useCallback, useRef } from 'react';
+import styles from './TextfileField.module.css';
 
 export interface TextfileFieldProps {
   disabled?: boolean;
@@ -36,7 +37,14 @@ export function TextfileField({
 
   return (
     <div>
-      <div className="flex gap-4 items-center">
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center',
+          gap: 1,
+        }}
+      >
         {!value && (
           <Button variant="contained" onClick={() => ref.current?.click()}>
             Upload
@@ -50,11 +58,11 @@ export function TextfileField({
             <DeleteIcon />
           </IconButton>
         )}
-      </div>
+      </Box>
       {!value && (
         <input
           ref={ref}
-          className="sr-only"
+          className={styles['sr-only']}
           type="file"
           onChange={(e) => onFilesAdded(Array.from(e.target.files ?? []))}
           disabled={disabled}
