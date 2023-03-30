@@ -1,5 +1,13 @@
-import { IonCol, IonContent, IonGrid, IonPage, IonRow } from '@ionic/react';
+import {
+  IonCol,
+  IonContent,
+  IonGrid,
+  IonIcon,
+  IonPage,
+  IonRow,
+} from '@ionic/react';
 import { ValidatedForm, z, zfd } from '@makerx/forms-ionic';
+import { checkmarkCircle, closeCircle } from 'ionicons/icons';
 
 /**
  * Define schema
@@ -47,8 +55,31 @@ function App() {
                       label: 'This is not required',
                       field: 'myOptionalParagraph',
                     })}
-
-                    {helper.submitButton({ label: 'Submit' })}
+                    <IonGrid>
+                      <IonRow class="ion-align-items-center">
+                        <IonCol size="auto">
+                          {helper.submitButton({ label: 'Submit' })}
+                        </IonCol>
+                        <IonCol>
+                          {helper.formContext.formState.isSubmitted &&
+                            (helper.formContext.formState.isSubmitSuccessful ? (
+                              <IonIcon
+                                style={{ marginTop: 6 }}
+                                icon={checkmarkCircle}
+                                size="large"
+                                color="success"
+                              />
+                            ) : (
+                              <IonIcon
+                                style={{ marginTop: 6 }}
+                                icon={closeCircle}
+                                size="large"
+                                color="danger"
+                              />
+                            ))}
+                        </IonCol>
+                      </IonRow>
+                    </IonGrid>
                   </div>
                 )}
               </ValidatedForm>
