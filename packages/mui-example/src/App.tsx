@@ -41,7 +41,7 @@ function App() {
     >
       {(helper) => (
         <Container sx={{ marginTop: 3 }} maxWidth="xs">
-          <Typography variant="h5">
+          <Typography sx={{ marginBottom: 2 }} variant="h5">
             <Link href="https://www.npmjs.com/package/@makerx/forms-mui">
               @makerx/forms-mui
             </Link>{' '}
