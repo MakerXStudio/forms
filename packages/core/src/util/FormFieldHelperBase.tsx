@@ -1,6 +1,11 @@
+import { UseFormReturn } from 'react-hook-form';
+
 export class FormFieldHelperBase<TSchema extends Record<string, any>> {
   private readonly fieldPrefix: string;
-  constructor({ fieldPrefix }: { fieldPrefix?: string } = {}) {
+  constructor(
+    public formContext: UseFormReturn<TSchema>,
+    { fieldPrefix }: { fieldPrefix?: string } = {}
+  ) {
     this.fieldPrefix = fieldPrefix ? `${fieldPrefix}.` : '';
   }
 
