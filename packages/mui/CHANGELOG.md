@@ -1,5 +1,11 @@
 # @makerx/forms-mui
 
+## 1.0.6
+
+### Patch Changes
+
+- 691661c: Fixes text file field style
+
 ## 1.0.5
 
 ### Patch Changes
