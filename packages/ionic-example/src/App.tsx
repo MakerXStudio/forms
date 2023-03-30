@@ -45,7 +45,21 @@ function App() {
               >
                 {(helper) => (
                   <div>
-                    <h2>ionic-example</h2>
+                    <h2>
+                      <a href="https://www.npmjs.com/package/@makerx/forms-ionic">
+                        @makerx/forms-ionic
+                      </a>{' '}
+                      demo
+                    </h2>
+                    <p>
+                      <a href="https://github.com/MakerXStudio/forms/tree/main/packages/ionic-example">
+                        source
+                      </a>
+                      {' | '}
+                      <a href="https://github.com/MakerXStudio/forms/tree/main/packages/ionic">
+                        docs
+                      </a>
+                    </p>
 
                     {helper.textField({
                       label: 'This is required',

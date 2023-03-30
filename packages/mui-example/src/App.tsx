@@ -1,7 +1,7 @@
 import { ValidatedForm, z, zfd } from '@makerx/forms-mui';
 import FailIcon from '@mui/icons-material/Cancel';
 import SuccessIcon from '@mui/icons-material/CheckCircle';
-import { Container, Grid, Stack, Typography } from '@mui/material';
+import { Container, Grid, Link, Stack, Typography } from '@mui/material';
 import { formatISO, parseISO } from 'date-fns';
 
 /**
@@ -40,8 +40,24 @@ function App() {
       defaultValues={defaultValues}
     >
       {(helper) => (
-        <Container maxWidth="xs">
-          <Typography variant="h3">mui-example</Typography>
+        <Container sx={{ marginTop: 3 }} maxWidth="xs">
+          <Typography variant="h5">
+            <Link href="https://www.npmjs.com/package/@makerx/forms-mui">
+              @makerx/forms-mui
+            </Link>{' '}
+            demo
+          </Typography>
+          <div>
+            <Typography>
+              <Link href="https://github.com/MakerXStudio/forms/tree/main/packages/mui-example">
+                source
+              </Link>
+              {' | '}
+              <Link href="https://github.com/MakerXStudio/forms/tree/main/packages/mui">
+                docs
+              </Link>
+            </Typography>
+          </div>
           <Grid sx={{ padding: 2 }} container spacing={2}>
             <Grid item xs={12}>
               {helper.textField({
