@@ -1,5 +1,11 @@
 # @makerx/forms-core
 
+## 1.1.1
+
+### Patch Changes
+
+- f54f318: Add readme
+
 ## 1.1.0
 
 ### Minor Changes
