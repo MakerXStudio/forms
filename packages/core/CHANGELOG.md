@@ -1,5 +1,11 @@
 # @makerx/forms-core
 
+## 1.1.0
+
+### Minor Changes
+
+- 8c66570: Expose helper.formContext
+
 ## 1.0.3
 
 ### Patch Changes
