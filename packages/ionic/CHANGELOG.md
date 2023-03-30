@@ -1,5 +1,13 @@
 # @makerx/forms-ionic
 
+## 2.0.0
+
+### Major Changes
+
+- 9b4cdcb: No longer re-exports react-hook-form.
+
+  Consumers should now import react-hook-form directly.
+
 ## 1.0.5
 
 ### Patch Changes
