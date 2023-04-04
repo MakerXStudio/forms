@@ -1,19 +1,24 @@
-import { TextField } from "@mui/material";
-import { Controller, useFormContext } from "react-hook-form";
-import type { FormItemProps } from "../form-item/FormItem";
-import { FormItem } from "../form-item/FormItem";
+import { TextField } from '@mui/material';
+import { Controller, useFormContext } from 'react-hook-form';
+import type { FormItemProps } from '../form-item/FormItem';
+import { FormItem } from '../form-item/FormItem';
 
-export type TextareaFormItemProps<TSchema extends Record<string, any> = Record<string, any>> = Omit<FormItemProps<TSchema>, "children"> & {
+export type TextareaFormItemProps<
+  TSchema extends Record<string, any> = Record<string, any>
+> = Omit<FormItemProps<TSchema>, 'children'> & {
   maxLength?: number;
   hint?: string;
 };
 
-export function TextareaFormItem<TSchema extends Record<string, any> = Record<string, any>>({
+export function TextareaFormItem<
+  TSchema extends Record<string, any> = Record<string, any>
+>({
   field,
   disabled,
   label,
   className,
   hint,
+  longHint,
   maxLength,
   ...textAreaProps
 }: TextareaFormItemProps<TSchema>) {
@@ -23,7 +28,14 @@ export function TextareaFormItem<TSchema extends Record<string, any> = Record<st
   } = useFormContext();
   const error = errors[field];
   return (
-    <FormItem field={field} label={label} disabled={disabled} className={className} hint={hint}>
+    <FormItem
+      field={field}
+      label={label}
+      disabled={disabled}
+      className={className}
+      hint={hint}
+      longHint={longHint}
+    >
       <Controller
         name={field}
         control={control}
@@ -32,7 +44,7 @@ export function TextareaFormItem<TSchema extends Record<string, any> = Record<st
             fullWidth
             inputProps={{
               maxLength,
-              "aria-label": label,
+              'aria-label': label,
             }}
             rows={4}
             multiline

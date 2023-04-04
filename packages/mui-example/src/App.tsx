@@ -67,6 +67,8 @@ function App() {
               {helper.textField({
                 label: 'This is required',
                 field: 'myString',
+                hint: 'Some hint text',
+                longHint: 'Some longer hint text',
               })}
             </Grid>
             <Grid item xs={12}>
@@ -89,6 +91,8 @@ function App() {
                 label: 'Text file',
                 field: 'myTextFile',
                 hint: 'Upload a textfile here',
+                longHint:
+                  "Here is some more info that couldn't fit in the hint",
               })}
             </Grid>
             <Grid item xs={12}>
