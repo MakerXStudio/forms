@@ -22,6 +22,7 @@ export function DateTimeFormItem<
   label,
   className,
   hint,
+  longHint,
   fromISO,
   toISO,
   ...dateTimePickerProps
@@ -36,6 +37,7 @@ export function DateTimeFormItem<
       field={field}
       label={label}
       hint={hint}
+      longHint={longHint}
       disabled={disabled}
       className={className}
     >

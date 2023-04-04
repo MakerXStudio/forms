@@ -11,6 +11,7 @@ export interface TextfileFormItemProps<TSchema extends Record<string, unknown>>
   label: string;
   field: FieldPath<TSchema>;
   hint?: string;
+  longHint?: string;
 }
 
 export function TextfileFormItem<TSchema extends Record<string, unknown>>({
@@ -18,6 +19,7 @@ export function TextfileFormItem<TSchema extends Record<string, unknown>>({
   label,
   field,
   hint,
+  longHint,
   ...fieldProps
 }: TextfileFormItemProps<TSchema>) {
   const { setValue, setError, clearErrors, getValues } =
@@ -36,7 +38,7 @@ export function TextfileFormItem<TSchema extends Record<string, unknown>>({
   );
 
   return (
-    <FormItem label={label} field={field} hint={hint}>
+    <FormItem label={label} field={field} hint={hint} longHint={longHint}>
       <TextfileField
         value={getValues(field) as string}
         onChange={onChange}

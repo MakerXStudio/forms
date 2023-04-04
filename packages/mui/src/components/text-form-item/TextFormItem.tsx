@@ -15,6 +15,7 @@ export function TextFormItem<
   label,
   className,
   hint,
+  longHint,
   ...inputProps
 }: TextFormItemProps<TSchema>) {
   const {
@@ -27,6 +28,7 @@ export function TextFormItem<
       field={field}
       label={label}
       hint={hint}
+      longHint={longHint}
       disabled={disabled}
       className={className}
     >

@@ -19,6 +19,7 @@ export function TextArrayFormItem<
   label,
   className,
   hint,
+  longHint,
   minimumItemCount,
 }: TextArrayFormItemProps<TSchema>) {
   const { control } = useFormContext();
@@ -39,6 +40,7 @@ export function TextArrayFormItem<
       field={field}
       label={label}
       hint={hint}
+      longHint={longHint}
       disabled={disabled}
       className={className}
     >
