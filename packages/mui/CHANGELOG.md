@@ -1,5 +1,11 @@
 # @makerx/forms-mui
 
+## 1.1.0
+
+### Minor Changes
+
+- da1cdc5: Added longHint
+
 ## 1.0.6
 
 ### Patch Changes
