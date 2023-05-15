@@ -14,9 +14,7 @@
   "files": [
     "dist"
   ],
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/index.d.ts",
+  "main": "src/index.ts",
   "peerDependencies": {
     "@mui/icons-material": "^5.11.11",
     "@mui/material": "^5.11.14",

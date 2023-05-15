@@ -1,8 +1,17 @@
 import { FormFieldHelperBase } from '@makerx/forms-core';
 import {
+  ArrayFormItems,
+  ArrayFormItemsProps,
+} from '../components/array-form-items/ArrayFormItems';
+import {
   DateTimeFormItem,
   DateTimeFormItemProps,
 } from '../components/date-time-form-item/DateTimeFormItem';
+import {
+  SelectFormItem,
+  SelectFormItemOption,
+  SelectFormItemProps,
+} from '../components/select-form-item/SelectFormItem';
 import {
   SubmitButton,
   SubmitButtonProps,
@@ -49,7 +58,57 @@ export class FormFieldHelper<
     return <TextfileFormItem {...props} />;
   }
 
+  selectField(props: SelectFormItemProps<TSchema>) {
+    return <SelectFormItem {...this.prefixFieldProp(props)} />;
+  }
+
+  array(props: ArrayFormItemsProps<TSchema>) {
+    return <ArrayFormItems {...this.prefixFieldProp(props)} />;
+  }
+
   submitButton(props: SubmitButtonProps) {
     return <SubmitButton {...props} />;
+  }
+
+  optionsForEnum<O extends object>(
+    enumeration: O,
+    includeEmpty?: boolean | string
+  ): SelectFormItemOption[] {
+    return [
+      ...(includeEmpty
+        ? [
+            {
+              label: typeof includeEmpty === 'string' ? includeEmpty : ' ',
+              value: '',
+            },
+          ]
+        : []),
+      ...Object.keys(enumeration)
+        .filter((k) => Number.isNaN(+k))
+        .map((k) => ({
+          label: k,
+          value: (enumeration[k as keyof O] as any).toString?.() ?? '',
+        })),
+    ];
+  }
+
+  optionsForStringList(
+    list: readonly string[],
+    includeEmpty?: boolean | string
+  ): SelectFormItemOption[] {
+    return [
+      ...(includeEmpty
+        ? [
+            {
+              label: typeof includeEmpty === 'string' ? includeEmpty : ' ',
+              value: '',
+            },
+          ]
+        : []),
+      ...list.map((o) => ({
+        label: o,
+        value: o,
+      })),
+    ];
   }
 }

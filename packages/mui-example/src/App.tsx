@@ -7,6 +7,20 @@ import { formatISO, parseISO } from 'date-fns';
 /**
  * Define schema
  */
+export enum NumberEnum {
+  One,
+  Two,
+  Three,
+}
+
+export enum StringEnum {
+  One = 'One',
+  Two = 'Two',
+  Three = 'Three',
+}
+
+export const StringEnumList = ['one', 'two', 'three'] as const;
+
 export const formSchema = zfd.formData({
   myString: zfd.text(z.string().trim().min(1, 'Required')),
   myArray: zfd.repeatable(
@@ -17,6 +31,22 @@ export const formSchema = zfd.formData({
   myDateTime: zfd.text(),
   myTextFile: zfd.text(z.string().optional()),
   myParagraph: zfd.text(),
+  myEnum: zfd.text(z.enum(StringEnumList)),
+  myNativeEnum: zfd.numeric(z.nativeEnum(NumberEnum)),
+  myNativeStringEnum: zfd.text(z.nativeEnum(StringEnum).optional()),
+  questions: z
+    .array(
+      z.object({
+        questionTitle: zfd.text(z.string().trim().min(1, 'Required')),
+        questionDescription: zfd.text(z.string().trim().optional()),
+        answers: zfd.repeatable(
+          z
+            .array(zfd.text(z.string().trim().min(1, 'Required')))
+            .min(2, 'Must have at least 2 answers')
+        ),
+      })
+    )
+    .min(1, 'Must have at least 1 question'),
 });
 
 /**
@@ -28,7 +58,12 @@ const defaultValues: z.infer<typeof formSchema> = {
   myDateTime: '',
   myTextFile: '',
   myParagraph: '',
+  myEnum: 'three',
+  myNativeEnum: NumberEnum.Two,
+  questions: [{ questionTitle: '', answers: [' ', ' '] }],
 };
+
+type Fields = z.infer<typeof formSchema>;
 
 /**
  * Render form
@@ -101,6 +136,55 @@ function App() {
                 field: 'myParagraph',
               })}
             </Grid>
+            <Grid item xs={12}>
+              {helper.selectField({
+                label: 'A string enum',
+                field: 'myEnum',
+                options: helper.optionsForStringList(StringEnumList),
+              })}
+            </Grid>
+            <Grid item xs={12}>
+              {helper.selectField({
+                label: 'A native number enum',
+                field: 'myNativeEnum',
+                options: helper.optionsForEnum(NumberEnum, '-- Select value'),
+              })}
+            </Grid>
+            <Grid item xs={12}>
+              {helper.selectField({
+                label: 'A native string enum',
+                field: 'myNativeStringEnum',
+                options: helper.optionsForEnum(StringEnum, true),
+              })}
+            </Grid>
+
+            <Grid item xs={12}>
+              {helper.array({
+                label: 'Questions',
+                field: 'questions',
+                minimumItemCount: 1,
+                itemLabel: 'question',
+                defaultAppendValue: { questionTitle: '', answers: [' ', ' '] },
+                children: (index) => (
+                  <>
+                    {helper.textField({
+                      label: 'Question or Category',
+                      field: `questions.${index}.questionTitle`,
+                    })}
+                    {helper.textField({
+                      label: 'Question description',
+                      field: `questions.${index}.questionDescription`,
+                    })}
+                    {helper.textFields({
+                      field: `questions.${index}.answers`,
+                      label: 'Answers',
+                      minimumItemCount: 2,
+                    })}
+                  </>
+                ),
+              })}
+            </Grid>
+
             <Grid item xs={12}>
               <Stack direction="row" spacing={1} alignItems="center">
                 {helper.submitButton({ label: 'Submit' })}
