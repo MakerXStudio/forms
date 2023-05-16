@@ -2,7 +2,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import PostAddIcon from '@mui/icons-material/PostAdd';
 import { Box, Button, IconButton } from '@mui/material';
 import { ReactElement } from 'react';
-import { FieldArrayPath, useFieldArray, useFormContext } from 'react-hook-form';
+import { FieldArrayPath, useFieldArray } from 'react-hook-form';
 import type { FormItemProps } from '../form-item/FormItem';
 import { FormItem } from '../form-item/FormItem';
 
@@ -29,7 +29,6 @@ export function ArrayFormItems<TSchema extends Record<string, any>>({
   defaultAppendValue,
   children,
 }: ArrayFormItemsProps<TSchema>) {
-  const { control } = useFormContext();
   const { fields, append, remove } = useFieldArray({
     name: field,
     rules: {
