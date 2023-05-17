@@ -27,11 +27,8 @@ export function DateTimeFormItem<
   toISO,
   ...dateTimePickerProps
 }: DateTimeFormItemProps<TSchema>) {
-  const {
-    control,
-    formState: { errors },
-  } = useFormContext();
-  const error = Boolean(errors[field]);
+  const { control, getFieldState } = useFormContext();
+  const error = Boolean(getFieldState(field)?.error);
   return (
     <FormItem
       field={field}

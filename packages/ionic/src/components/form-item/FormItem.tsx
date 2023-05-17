@@ -22,10 +22,11 @@ export function FormItem<
   TSchema extends Record<string, any> = Record<string, any>
 >({ className, label, hint, children, field }: FormItemProps<TSchema>) {
   const {
-    formState: { errors, touchedFields },
+    formState: { touchedFields },
+    getFieldState,
   } = useFormContext();
   const { required } = useFieldMetaData(field);
-  const error = errors[field];
+  const error = getFieldState(field)?.error;
   return (
     <IonItem
       fill="solid"

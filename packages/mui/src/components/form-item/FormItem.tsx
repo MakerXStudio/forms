@@ -30,11 +30,10 @@ export function FormItem<
   field,
   longHint,
 }: FormItemProps<TSchema>) {
-  const {
-    formState: { errors },
-  } = useFormContext();
+  const { getFieldState } = useFormContext();
   const { required } = useFieldMetaData(field);
-  const errorMessage = errors[field]?.message;
+  const { error } = getFieldState(field);
+  const errorMessage = error?.message;
   return (
     <div>
       <InputLabel className="text-black">

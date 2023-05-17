@@ -18,11 +18,8 @@ export function TextFormItem<
   longHint,
   ...inputProps
 }: TextFormItemProps<TSchema>) {
-  const {
-    control,
-    formState: { errors },
-  } = useFormContext();
-  const error = errors[field];
+  const { control, getFieldState } = useFormContext();
+  const error = getFieldState(field).error;
   return (
     <FormItem
       field={field}
