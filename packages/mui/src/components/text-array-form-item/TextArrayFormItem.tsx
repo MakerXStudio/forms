@@ -51,13 +51,8 @@ export function TextArrayFormItem<
             name={`${field}.${ix}`}
             control={control}
             render={({ field: { onChange, onBlur, value, name, ref } }) => {
-              const {
-                formState: { errors },
-              } = useFormContext();
-              const errorMessage = errors[field]
-                ? // @ts-expect-error typescript doesn't like this but it works
-                  errors[field][ix]?.message
-                : '';
+              const { getFieldState } = useFormContext();
+              const errorMessage = getFieldState(name)?.error?.message;
 
               return (
                 <div>
