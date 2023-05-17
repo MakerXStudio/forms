@@ -1,5 +1,11 @@
 # @makerx/forms-ionic
 
+## 2.1.0
+
+### Minor Changes
+
+- 063af2a: Validation supports nested fields, MUI now has select and array support
+
 ## 2.0.0
 
 ### Major Changes
