@@ -10,10 +10,7 @@ export const useFieldMetaData = (field: string) => {
     };
   }
 
-  const fieldSchema = getDeepPropertyOfSchema(
-    validator._def.schema,
-    field.split('.')
-  );
+  const fieldSchema = getDeepPropertyOfSchema(validator, field.split('.'));
   return {
     required: validator && !fieldSchema.isOptional(),
   };
@@ -23,6 +20,10 @@ function getDeepPropertyOfSchema(
   schema: z.ZodTypeAny,
   path: string[]
 ): z.ZodTypeAny {
+  if (isZodEffects(schema)) {
+    return getDeepPropertyOfSchema(schema._def.schema, path);
+  }
+
   if (path.length === 0) return schema;
   const [first, ...rest] = path;
 
@@ -56,4 +57,10 @@ function isZodObject(
 
 function isZodArray(schema: z.ZodTypeAny): schema is z.ZodArray<z.ZodTypeAny> {
   return schema._def.typeName === 'ZodArray';
+}
+
+function isZodEffects(
+  schema: z.ZodTypeAny
+): schema is z.ZodEffects<any, any, any> {
+  return schema._def.typeName === 'ZodEffects';
 }
