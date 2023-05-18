@@ -1,5 +1,11 @@
 # @makerx/forms-core
 
+## 1.1.2
+
+### Patch Changes
+
+- a96ee54: Fix error that would occur when passing in a wrapped validator (ie. a validator with additional effects added to it)
+
 ## 1.1.1
 
 ### Patch Changes
