@@ -11,7 +11,7 @@ import type { z } from 'zod';
 import { FormFieldHelperBase } from '../util/FormFieldHelperBase';
 
 type Validator =
-  | z.ZodEffects<z.ZodObject<Record<string, z.ZodTypeAny>>, unknown, unknown>
+  | z.ZodTypeAny
   | undefined;
 const ValidatorContext = createContext<Validator>(undefined);
 const ValidatorContextProvider = ValidatorContext.Provider;
@@ -23,11 +23,7 @@ export interface ValidatedFormProps<
 > {
   className?: string;
   children: React.ReactNode | ((helper: K) => React.ReactNode);
-  validator: z.ZodEffects<
-    z.ZodObject<Record<keyof TSchema, z.ZodTypeAny>>,
-    TSchema,
-    unknown
-  >;
+  validator: z.ZodType<TSchema, any, any>;
   defaultValues?: DefaultValues<TSchema>;
   mode?: keyof ValidationMode | undefined;
   onSubmit?(values: TSchema): void | Promise<void>;
