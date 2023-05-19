@@ -2,6 +2,7 @@ import { TextField } from '@mui/material';
 import { Controller, useFormContext } from 'react-hook-form';
 import type { FormItemProps } from '../form-item/FormItem';
 import { FormItem } from '../form-item/FormItem';
+import { useFormFieldError } from '@makerx/forms-core';
 
 export type TextareaFormItemProps<
   TSchema extends Record<string, any> = Record<string, any>
@@ -22,8 +23,8 @@ export function TextareaFormItem<
   maxLength,
   ...textAreaProps
 }: TextareaFormItemProps<TSchema>) {
-  const { control, getFieldState } = useFormContext();
-  const error = getFieldState(field).error;
+  const { control } = useFormContext();
+  const error = useFormFieldError(field);
   return (
     <FormItem
       field={field}
