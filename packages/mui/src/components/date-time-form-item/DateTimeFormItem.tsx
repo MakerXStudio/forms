@@ -2,6 +2,7 @@ import { DateTimePicker, DateTimePickerProps } from '@mui/x-date-pickers';
 import { Controller, useFormContext } from 'react-hook-form';
 import type { FormItemProps } from '../form-item/FormItem';
 import { FormItem } from '../form-item/FormItem';
+import { useFormFieldError } from '@makerx/forms-core';
 
 export type DateTimeConverters = {
   toISO: (v: Date) => string;
@@ -27,8 +28,8 @@ export function DateTimeFormItem<
   toISO,
   ...dateTimePickerProps
 }: DateTimeFormItemProps<TSchema>) {
-  const { control, getFieldState } = useFormContext();
-  const error = Boolean(getFieldState(field)?.error);
+  const { control } = useFormContext();
+  const error = Boolean(useFormFieldError(field));
   return (
     <FormItem
       field={field}
