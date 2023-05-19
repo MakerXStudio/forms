@@ -1,5 +1,11 @@
 # @makerx/forms-mui
 
+## 1.2.2
+
+### Patch Changes
+
+- 1840702: Proppagate validation error fix to date, select, and textarea form items
+
 ## 1.2.1
 
 ### Patch Changes
