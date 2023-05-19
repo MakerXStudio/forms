@@ -1,5 +1,13 @@
 # @makerx/forms-mui
 
+## 1.2.1
+
+### Patch Changes
+
+- 5992f34: Fix bug where validation errors would only show after an externally triggered re-render
+- Updated dependencies [5992f34]
+  - @makerx/forms-core@1.1.3
+
 ## 1.2.0
 
 ### Minor Changes

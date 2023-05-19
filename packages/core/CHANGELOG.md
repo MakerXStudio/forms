@@ -1,5 +1,11 @@
 # @makerx/forms-core
 
+## 1.1.3
+
+### Patch Changes
+
+- 5992f34: Fix bug where validation errors would only show after an externally triggered re-render
+
 ## 1.1.2
 
 ### Patch Changes
