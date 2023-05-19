@@ -1,4 +1,4 @@
-import { useFieldMetaData } from '@makerx/forms-core';
+import { useFieldMetaData, useFormFieldError } from '@makerx/forms-core';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { InputLabel, Tooltip, Typography } from '@mui/material';
 import clsx from 'clsx';
@@ -30,9 +30,11 @@ export function FormItem<
   field,
   longHint,
 }: FormItemProps<TSchema>) {
-  const { getFieldState } = useFormContext();
+  const {
+    formState: { errors },
+  } = useFormContext();
   const { required } = useFieldMetaData(field);
-  const { error } = getFieldState(field);
+  const error = useFormFieldError(field);
   const errorMessage = error?.message;
   return (
     <div>
