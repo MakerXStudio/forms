@@ -1,5 +1,11 @@
 # @makerx/forms-core
 
+## 1.1.4
+
+### Patch Changes
+
+- e0f88f1: pin @hookform/resolvers to <=3.2.0
+
 ## 1.1.3
 
 ### Patch Changes
