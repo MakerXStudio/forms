@@ -24,7 +24,7 @@
     "react-hook-form": "^7.43.7"
   },
   "dependencies": {
-    "@hookform/resolvers": "^3.0.0",
+    "@hookform/resolvers": "<=3.2.0",
     "zod": "^3.21.4",
     "zod-form-data": "^2.0.1"
   },
