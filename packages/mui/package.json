@@ -18,9 +18,9 @@
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
   "peerDependencies": {
-    "@mui/icons-material": "^6.1.10",
-    "@mui/material": "^6.1.10",
-    "@mui/x-date-pickers": "^7.23.1",
+    "@mui/icons-material": "^5.11.11 || ^6.1.10",
+    "@mui/material": "^5.11.14 || ^6.1.10",
+    "@mui/x-date-pickers": "^6.0.2 || ^7.23.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.7"
