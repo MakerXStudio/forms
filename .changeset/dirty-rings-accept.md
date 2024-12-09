@@ -1,5 +1,5 @@
 ---
-'@makerx/forms-mui': major
+'@makerx/forms-mui': patch
 ---
 
-Updating MUI to v6
+Added support for MUI v6
